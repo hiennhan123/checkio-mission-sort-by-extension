@@ -1,20 +1,27 @@
 <!-- Describe task in general -->
 
 <p>
-    Sum two passed ints
+    You are given with a list of files. You need to sort this list by file extension. Files with the same extestion should be sorted by name.
 </p>
 
-<p style="text-align: center;">
-    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
-</p>
+<p>Some cases about extensions:</p>
+
+<ul>
+    <li>Filename can't be an empty string</li>
+    <li>Files without extensions should go before files with extension</li>
+    <li>Filename ".config" has empty extenstion and name ".config"</li>
+    <li>Filename "config." has empty extenstion and name ".config" </li>
+    <li>Filename "table.imp.xls" has extesntion "xls" and name "table.imp"</li>
+    <li>Filename ".imp.xls" has extension "xls" and name ".imp"</li>
+</ul>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Two arguments. Both are ints.
+    <strong>Input: </strong> A list of filenames. 
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong> A list of filenames.
 </p>
 
 
@@ -25,12 +32,20 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">sumTwo(2, 3) == 5
-sumTwo(5, 7) == 12
+<pre class="brush: javascript">sortByExt(['1.cad', '1.bat', '1.aa']) == ['1.aa', '1.bat', '1.cad']
+sortByExt(['1.cad', '1.bat', '1.aa', '2.bat']) == ['1.aa', '1.bat', '2.bat', '1.cad']
+sortByExt(['1.cad', '1.bat', '1.aa', '.bat']) == ['.bat', '1.aa', '1.bat', '1.cad']
+sortByExt(['1.cad', '1.bat', '.aa', '.bat']) == ['.aa', '.bat', '1.bat', '1.cad']
+sortByExt(['1.cad', '1.', '1.aa']) == ['1.', '1.aa', '1.cad']
+sortByExt(['1.cad', '1.bat', '1.aa', '1.aa.doc']) == ['1.aa', '1.bat', '1.cad', '1.aa.doc']
 </pre>
 {% else %}
-<pre class="brush: python">sum_two(2, 3) == 5
-sum_two(5, 7) == 12
+<pre class="brush: python">sort_by_ext(['1.cad', '1.bat', '1.aa']) == ['1.aa', '1.bat', '1.cad']
+sort_by_ext(['1.cad', '1.bat', '1.aa', '2.bat']) == ['1.aa', '1.bat', '2.bat', '1.cad']
+sort_by_ext(['1.cad', '1.bat', '1.aa', '.bat']) == ['.bat', '1.aa', '1.bat', '1.cad']
+sort_by_ext(['1.cad', '1.bat', '.aa', '.bat']) == ['.aa', '.bat', '1.bat', '1.cad']
+sort_by_ext(['1.cad', '1.', '1.aa']) == ['1.', '1.aa', '1.cad']
+sort_by_ext(['1.cad', '1.bat', '1.aa', '1.aa.doc']) == ['1.aa', '1.bat', '1.cad', '1.aa.doc']
 </pre>
 {% endif %}
 </div>
