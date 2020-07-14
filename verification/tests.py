@@ -44,5 +44,9 @@ TESTS = {
             "input": [['.config', 'my.doc', '1.exe', '345.bin', 'green.bat', 'format.c', 'no.name.', 'best.test.exe']],
             "answer": ['.config', 'no.name.', 'green.bat', '345.bin', 'format.c', 'my.doc', '1.exe', 'best.test.exe'],
         },
+        {
+            "input": [['1.cad', '2.bat', '1.aa', '1.bat']],
+            "answer": ['1.aa', '1.bat', '2.bat', '1.cad'],
+        },
     ]
 }
